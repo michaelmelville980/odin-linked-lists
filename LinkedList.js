@@ -51,24 +51,70 @@ export default class LinkedList{
 
     //Returns node at given index
     at(index){
-
+        let currentNode = this.head;
+        let counter = 0;
+        while (counter < index){
+            currentNode = currentNode.nextNode;
+            counter++;
+        }
+        return currentNode;
     }
 
-    //Removes last element from list 
+    //Removes last element from list (assumes list at least 1)
     pop(){
-
+        if(this.size === 1){
+            this.head = null;
+            this.tail = null;
+        }else if (this.size === 2){
+            this.tail = this.head;
+        }else{
+            let newLastNode = this.at(this.size - 2);
+            this.tail = newLastNode;
+            newLastNode.nextNode = null;
+        }
+        this.size--;
     }
 
     //Returns true if passed value is in list, false otherwise
     contains(value){
-
+        let counter = 0;
+        let currentNode = this.head;
+        let containsValue = (this.head.value === value);
+        while (!containsValue && counter < this.size()){
+            currentNode = currentNode.nextNode;
+            if (currentNode.value === value){
+                containsValue = true;
+            }
+            counter++;
+        }
+        return containsValue;
     }
 
     //Returns index of node containing value, or null if not found
     find(value){
-
+        let counter = 0;
+        let currentNode = this.head;
+        let index = null;
+        if (currentNode.value === value){
+            index = counter;
+        }
+        while (index === null && counter < this.size){
+            currentNode = currentNode.nextNode;
+            counter++;
+            if (currentNode.value === value){
+                index = counter;
+            }
+        }
+        return index;
     }
 
     //Represents LinkedList objects as strings (value) -> (value) -. (value) -> null
-    toString(){}
+    toString(){
+        let string = "";
+        let currentNode = this.head;
+        for (let i = 0; i < this.size(); i++){
+            string += "( " + currentNode.value.toString() + " )" + "->";
+        }
+        return string;
+    }
 }
