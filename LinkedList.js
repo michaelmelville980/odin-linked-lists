@@ -10,12 +10,28 @@ export default class LinkedList{
 
     // Adds new node (with value) to end of list
     append(value){
-
+        const newNode = new Node(value);
+        if (this.size === 0){
+            this.head = newNode;
+            this.tail = newNode;
+        }else{
+            this.tail.nextNode = newNode;
+            this.tail = newNode;
+        }
+        this.size++;
     }
 
     //Adds new node (with value) to start of list
     prepend(value){
-
+        const newNode = new Node(value);
+        if (this.size === 0){
+            this.head = newNode;
+            this.tail = newNode;
+        }else{
+            newNode.nextNode = this.head;
+            this.head = newNode;
+        }
+        this.size++;
     }
 
     //Returns size (# of nodes)
