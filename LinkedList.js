@@ -20,17 +20,17 @@ export default class LinkedList{
 
     //Returns size (# of nodes)
     size(){
-
+        return this.size;
     }
 
     //Returns first node
     head(){
-
+        return this.head;
     }
 
     //Returns last node 
     tail(){
-
+        return this.tail;
     }
 
     //Returns node at given index
@@ -54,7 +54,5 @@ export default class LinkedList{
     }
 
     //Represents LinkedList objects as strings (value) -> (value) -. (value) -> null
-    toString(){
-        
-    }
+    toString(){}
 }
