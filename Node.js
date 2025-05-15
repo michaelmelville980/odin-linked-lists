@@ -2,7 +2,7 @@ export default class Node{
 
     constructor(value = null){
         this.value = value;
-        this.nextNode = nextNode;
+        this.nextNode = null;
     }
 
 }
