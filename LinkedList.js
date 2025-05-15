@@ -112,8 +112,9 @@ export default class LinkedList{
     toString(){
         let string = "";
         let currentNode = this.head;
-        for (let i = 0; i < this.size(); i++){
+        for (let i = 0; i < this.size; i++){
             string += "( " + currentNode.value.toString() + " )" + "->";
+            currentNode = currentNode.nextNode;
         }
         return string;
     }
