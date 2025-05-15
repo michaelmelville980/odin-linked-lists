@@ -1,4 +1,4 @@
-import LinkedList from './LinkedList.js';
+import Node from './Node.js';
 
 export default class LinkedList{
 
